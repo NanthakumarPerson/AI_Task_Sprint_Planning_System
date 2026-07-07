@@ -1,4 +1,4 @@
-<h1 align="center">🤖 AI Sprint Planner</h1>
+<h1 align="center"> AI Sprint Planner</h1>
 
 <p align="center">
   <strong>An AI-powered Agile project management platform for intelligent sprint planning, task breakdown, and team collaboration.</strong>
