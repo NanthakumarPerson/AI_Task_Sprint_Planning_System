@@ -1,0 +1,37 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Python 3.14 compatible requirements
+# Install with:  pip install -r requirements.txt
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Web framework
+fastapi
+
+# ASGI server
+uvicorn[standard]
+
+# ORM + DB
+sqlalchemy
+psycopg2-binary
+alembic
+
+# Auth
+python-jose[cryptography]
+passlib[bcrypt]
+bcrypt==4.0.1
+
+
+# Config / env
+python-dotenv
+pydantic-settings
+
+# Pydantic (with email validation support — needed for EmailStr in auth schemas)
+pydantic[email]
+
+# HTTP client (for AI service calls)
+httpx
+
+# Google Gemini AI SDK
+google-genai
+
+# Form parsing
+python-multipart

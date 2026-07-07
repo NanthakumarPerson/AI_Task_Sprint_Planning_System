@@ -1,0 +1,45 @@
+# ── Python artifacts ────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# ── Virtual environments ─────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+
+# ── Environment / secrets (NEVER commit these) ───────────
+.env
+.env.local
+.env.*.local
+
+# ── SQLite databases (dev artifacts) ────────────────────
+*.db
+*.sqlite
+*.sqlite3
+
+# ── Alembic runtime artifacts ────────────────────────────
+# Keep alembic/versions/, but ignore any generated pycache
+alembic/__pycache__/
+
+# ── Test & debug scripts ─────────────────────────────────
+test_*.py
+fix_*.py
+
+# ── macOS system files ───────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── IDEs ─────────────────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo

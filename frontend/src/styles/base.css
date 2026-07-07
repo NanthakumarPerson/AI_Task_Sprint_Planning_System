@@ -1,0 +1,107 @@
+/* ── Reset & Base ─────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* ========================================================
+     PHASE 1 - DESIGN TOKEN SYSTEM
+     ======================================================== */
+
+  /* 1. Color Tokens (Solid & Tint) */
+  --color-primary: #4682B4;       /* Steel Blue */
+  --color-primary-dark: #3a6d96;
+  --color-primary-tint: rgba(70, 130, 180, 0.15);
+  
+  --color-success: #16a34a;       /* Solid Green */
+  --color-success-tint: rgba(22, 163, 74, 0.15);
+  
+  --color-warning: #d97706;       /* Solid Amber */
+  --color-warning-tint: rgba(217, 119, 6, 0.15);
+  
+  --color-danger: #dc2626;        /* Solid Red */
+  --color-danger-tint: rgba(220, 38, 38, 0.15);
+  
+  --color-info: #475569;          /* Solid Blue-Gray */
+  --color-info-tint: rgba(71, 85, 105, 0.15);
+  
+  /* Priority badge colours mapping to semantics */
+  --color-critical: var(--color-danger);
+  --color-high: #ea580c;
+  --color-high-tint: rgba(234, 88, 12, 0.15);
+  --color-medium: var(--color-warning);
+  --color-low: var(--color-success);
+ 
+  /* Backgrounds & Text */
+  --color-bg: #f8fafc;
+  --color-surface: #ffffff;
+  --color-border: #e2e8f0;
+  --color-text: #1e293b;
+  --color-text-muted: #64748b;
+  
+  /* Sidebar */
+  --color-sidebar: #2c5270;       /* Deep Steel Blue */
+  --color-sidebar-hover: #3a6d96; /* Darker Steel Blue hover */
+
+  /* 2. Type Scale (6 steps) */
+  --font-sans: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --text-xs: 0.75rem;    /* 12px - Labels, captions */
+  --text-sm: 0.875rem;   /* 14px - Secondary text, UI elements */
+  --text-base: 1rem;     /* 16px - Body text */
+  --text-lg: 1.125rem;   /* 18px - Subheaders */
+  --text-xl: 1.25rem;    /* 20px - Section headers */
+  --text-2xl: 1.75rem;   /* 28px - Page titles */
+  
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+
+  /* 3. Spacing Scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+
+  /* 4. Radius Scale */
+  --radius-sm: 6px;      /* Inputs, small elements */
+  --radius-md: 10px;     /* Cards, modals */
+  --radius-pill: 999px;  /* Badges, pills */
+
+  /* 5. Shadow Scale */
+  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03); /* Rest state */
+  --shadow-elevated: 0 4px 14px rgba(0, 0, 0, 0.08), 0 2px 5px rgba(0, 0, 0, 0.04); /* Hover state */
+  
+  /* Focus Ring */
+  --focus-ring: 0 0 0 2px var(--color-bg), 0 0 0 4px var(--color-primary);
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+}
