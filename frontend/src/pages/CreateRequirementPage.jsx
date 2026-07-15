@@ -9,7 +9,7 @@
 //
 // The AI flow:  React → FastAPI → Gemini API → FastAPI → React
 // The AI API key is NEVER in frontend code. Only the backend knows it.
-// =============================================================================
+// =============================================================================..
 
 import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
@@ -83,7 +83,7 @@ export default function CreateRequirementPage() {
     const [aiConfirmMsg, setAiConfirmMsg] = useState('');            // Confirms success banner text
     const [aiConfirmError, setAiConfirmError] = useState('');        // Confirms error alerts
     const [aiSavedTasks, setAiSavedTasks] = useState([]);            // AI tasks successfully saved to DB
-    
+
     // Modal states for editing a generated AI task in-place
     const [editingTaskIndex, setEditingTaskIndex] = useState(null);
     const [editingTaskData, setEditingTaskData] = useState(null);
@@ -99,7 +99,7 @@ export default function CreateRequirementPage() {
                     setReqForm(f => ({ ...f, project_id: String(projs[0].id) }));
                 }
             })
-            .catch(() => {})
+            .catch(() => { })
             .finally(() => setLoadingProjects(false));
     }, []);
 
@@ -341,7 +341,7 @@ export default function CreateRequirementPage() {
             const newTask = res.data?.data;
             setCreatedTasks(prev => [newTask, ...prev]);
             setTaskMsg(`Task "${taskForm.title.trim()}" added!`);
-            
+
             // Reset task form, retaining sprint choices and inheriting original priorities
             setTaskForm(f => ({
                 title: '',
@@ -569,7 +569,7 @@ export default function CreateRequirementPage() {
                                                 <span style={{ fontSize: 12, fontWeight: 600 }}>{task.effort_points}</span>
                                             </td>
                                             <td style={{ padding: '8px 6px', fontSize: 13 }}>
-                                                {task.assignee_id ? teamUsers.find(u => u.id === parseInt(task.assignee_id))?.name || 'Unknown' : <span style={{color: '#94a3b8'}}>Unassigned</span>}
+                                                {task.assignee_id ? teamUsers.find(u => u.id === parseInt(task.assignee_id))?.name || 'Unknown' : <span style={{ color: '#94a3b8' }}>Unassigned</span>}
                                             </td>
                                             <td style={{ padding: '8px 6px' }}>
                                                 <button

@@ -12,7 +12,7 @@ import { validateEmail } from "../utils/validators";
  * --------------------------------------------------------------------------------
  */
 function LoginPage() {
-  // Navigation hook to programmatically redirect users after a successful login
+  // Navigation hook to programmatically redirect users after a successful login..
   const navigate = useNavigate();
 
   // Local State Variables

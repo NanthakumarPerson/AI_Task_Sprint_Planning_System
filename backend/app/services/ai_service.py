@@ -130,7 +130,7 @@ class AIService:
                     if task.get("priority") in valid_priorities
                     else "medium"
                 ),
-                # Enforce Fibonacci scale bounds
+                # Enforce Fibonacci scale bounds.
                 "effort_points": min(max(int(task.get("effort_points", 3)), 1), 13),
                 "acceptance_criteria": task.get("acceptance_criteria", ""),
                 "possible_risks": task.get("possible_risks", ""),

@@ -15,7 +15,7 @@ from fastapi.responses import JSONResponse
 from app.core.database import engine
 #feature story for git is added . dont consider
 
-# Lifespan — DB connection check on startup
+# Lifespan — DB connection check on startup.
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     try:

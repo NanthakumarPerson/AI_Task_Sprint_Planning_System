@@ -12,7 +12,7 @@ import { classifySprint, SPRINT_STATE_LABELS } from '../utils/sprintHelpers';
  * --------------------------------------------------------------------------------
  * Manages backlog tasks (tasks that have not yet been assigned to a sprint).
  * Renders lists of unallocated items, allows managers to assign them to active/upcoming
- * sprints, view task details, or delete tasks.
+ * sprints, view task details, or delete tasks..
  * --------------------------------------------------------------------------------
  */
 export default function BacklogPage() {
@@ -21,7 +21,7 @@ export default function BacklogPage() {
     const [loading, setLoading] = useState(true);    // Skeleton spinner indicator during fetch
     const [sprints, setSprints] = useState([]);    // Active/Planning sprints available for assignment
     const [teamUsers, setTeamUsers] = useState([]);  // List of team users (for assignees)
-    
+
     // Modal state for viewing a single task's full details
     const [selectedTask, setSelectedTask] = useState(null);
     // Toast notification banner state
@@ -54,7 +54,7 @@ export default function BacklogPage() {
                 getTeamUsers(),
             ]);
             setTasks(tasksRes.data.data?.tasks || []);
-            
+
             // Offer sprints that are active, upcoming, or ready to start.
             // Exclude completed, cancelled, or ended sprints.
             setSprints((sprintsRes.data.data || []).filter(s => {
@@ -130,7 +130,7 @@ export default function BacklogPage() {
                     <span>{toast.type === 'error' ? '⚠️' : '✅'}</span> {toast.msg}
                 </div>
             )}
-            
+
             <h2 className="page-title">Backlog (Not assigned)</h2>
             <p className="muted" style={{ marginBottom: 20 }}>
                 Tasks that have been created but are not yet assigned to any sprint.
@@ -179,7 +179,7 @@ export default function BacklogPage() {
                                         </td>
                                         {/* e.stopPropagation avoids triggering row click modal */}
                                         <td onClick={e => e.stopPropagation()}>
-                                            <select 
+                                            <select
                                                 className="form-input filter-select"
                                                 style={{ padding: '4px 8px', height: 'auto', minWidth: 140 }}
                                                 value=""
@@ -187,17 +187,17 @@ export default function BacklogPage() {
                                             >
                                                 <option value="" disabled>Select sprint...</option>
                                                 {sprints.map(s => {
-                                                     const state = classifySprint(s);
-                                                     return (
-                                                         <option key={s.id} value={s.id}>
-                                                             {s.name} ({SPRINT_STATE_LABELS[state] || state})
-                                                         </option>
-                                                     );
-                                                 })}
-                                             </select>
+                                                    const state = classifySprint(s);
+                                                    return (
+                                                        <option key={s.id} value={s.id}>
+                                                            {s.name} ({SPRINT_STATE_LABELS[state] || state})
+                                                        </option>
+                                                    );
+                                                })}
+                                            </select>
                                         </td>
                                         <td onClick={e => e.stopPropagation()}>
-                                            <button 
+                                            <button
                                                 className="btn btn-secondary btn-sm"
                                                 style={{ color: 'var(--color-danger)' }}
                                                 onClick={() => handleDelete(t.id)}
