@@ -13,7 +13,7 @@ import { classifySprint, sprintStateBadgeClass, SPRINT_STATE_LABELS, isReadyToSt
  * --------------------------------------------------------------------------------
  * A high-level administrative interface designed for PMs and Admins (but viewable by
  * other roles). Allows creating and selecting projects, viewing related sprints,
- * triggering sprint transitions (start, complete, cancel), and managing sprint tasks.
+ * triggering sprint transitions (start, complete, cancel), and managing sprint tasks..
  * --------------------------------------------------------------------------------
  */
 export default function ProjectsPage() {
@@ -227,7 +227,7 @@ export default function ProjectsPage() {
                 delete payload.start_date;
                 delete payload.end_date;
             }
-            
+
             const res = await updateSprint(selectedSprint.id, payload);
             setSprintMsg('Sprint updated successfully.');
             setShowEditSprint(false);
@@ -250,7 +250,7 @@ export default function ProjectsPage() {
             const tasks = res.data.data?.tasks || [];
             const unfinished = tasks.filter(t => t.status !== 'DONE');
             let move_unfinished = false;
-            
+
             if (unfinished.length > 0) {
                 if (!confirm(`Sprint has ${unfinished.length} unfinished tasks. Move them to Backlog? (Canceling will abort sprint completion)`)) return;
                 move_unfinished = true;
@@ -277,7 +277,7 @@ export default function ProjectsPage() {
             const tasks = res.data.data?.tasks || [];
             const unfinished = tasks.filter(t => t.status !== 'DONE');
             let move_unfinished = false;
-            
+
             if (unfinished.length > 0) {
                 if (!confirm(`Sprint has ${unfinished.length} unfinished tasks. Move them to Backlog? (Canceling will abort sprint cancellation)`)) return;
                 move_unfinished = true;
@@ -326,7 +326,7 @@ export default function ProjectsPage() {
             alert(getErrorMessage(err) || 'Failed to delete task.');
         }
     }
-    
+
     /**
      * handleOpenEditTask Function
      * Pre-fills the inline task edit form.
@@ -605,7 +605,7 @@ export default function ProjectsPage() {
                                 return (
                                     <>
                                         <div className="section-divider" style={{ margin: '4px 0 16px' }} />
-                                        
+
                                         {/* Scheduled to start today alert */}
                                         {state === 'ready_to_start' && (
                                             <div className="ai-premium-card" style={{ marginBottom: 16, padding: 16, background: 'rgba(99, 102, 241, 0.08)', border: '1px solid rgba(99, 102, 241, 0.3)', borderRadius: 'var(--radius)' }}>
@@ -835,8 +835,8 @@ export default function ProjectsPage() {
                                                             <td><span className={`badge badge-${t.status}`}>{statusLabel(t.status)}</span></td>
                                                             <td>
                                                                 <div style={{ display: 'flex', gap: '4px' }}>
-                                                                    <button 
-                                                                        className="btn btn-secondary btn-sm" 
+                                                                    <button
+                                                                        className="btn btn-secondary btn-sm"
                                                                         style={{ padding: '2px 6px', fontSize: '0.75rem' }}
                                                                         onClick={() => handleOpenEditTask(t)}
                                                                         disabled={selectedSprint?.status === 'completed'}
@@ -844,8 +844,8 @@ export default function ProjectsPage() {
                                                                         Edit
                                                                     </button>
                                                                     {selectedSprint?.status === 'active' && (
-                                                                        <button 
-                                                                            className="btn btn-secondary btn-sm" 
+                                                                        <button
+                                                                            className="btn btn-secondary btn-sm"
                                                                             style={{ padding: '2px 6px', fontSize: '0.75rem', color: '#dc2626' }}
                                                                             onClick={() => handleRemoveTask(t)}
                                                                             disabled={t.status === 'DONE'}
